@@ -1,12 +1,15 @@
 import React from 'react';
+import { Onboard } from './components/Onboard';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 export const App = () => {
   return (
-    <div className='App'>
-      <header className='App-header'>
-        <h1>Rushi</h1>
-      </header>
-    </div>
+    <Router>
+      <div className='App'>
+        <Switch>
+          <Route exact path='/' component={Onboard} />
+        </Switch>
+      </div>
+    </Router>
   );
-}
-
+};
