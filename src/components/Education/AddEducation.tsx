@@ -3,19 +3,18 @@ import { Button } from '../../shared/index';
 import Modal from 'react-modal';
 import styled from 'styled-components';
 
-Modal.setAppElement('#root');
-
 export const AddEducation: FC = () => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   return (
     <AddEducationContainer>
       <Button onClick={() => setIsModalOpen(true)}>Add Education</Button>
       <Modal
+        appElement={document.querySelector('.App') as any}
         isOpen={isModalOpen}
         onRequestClose={() => setIsModalOpen(false)}
         style={customStyles}
         contentLabel='Add Education'>
-        <form style={{height: '60vh'}}>
+        <form style={{ height: '60vh' }}>
           <input />
           <button>tab navigation</button>
           <button>stays</button>
@@ -37,6 +36,8 @@ const AddEducationContainer = styled.div`
     margin: 0 auto;
   }
 `;
+
+AddEducationContainer.displayName = 'AddEducationContainer'
 
 const customStyles = {
   content: {

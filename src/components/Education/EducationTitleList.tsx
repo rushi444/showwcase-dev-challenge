@@ -1,9 +1,10 @@
-import React from 'react'
+import React from 'react';
+import styled from 'styled-components';
 
 export const EducationTitleList = () => {
-    return (
-        <div>
-            title
-        </div>
-    )
-}
+  return <EducationTitleListContainer>title</EducationTitleListContainer>;
+};
+
+const EducationTitleListContainer = styled.div``;
+
+EducationTitleListContainer.displayName = 'EducationTitleListContainer';

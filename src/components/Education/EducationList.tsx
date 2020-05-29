@@ -1,9 +1,15 @@
 import React from 'react'
+import styled from 'styled-components'
 
 export const EducationList = () => {
     return (
-        <div style={{width: '70%'}}>
+        <EducationListContainer>
             list
-        </div>
+        </EducationListContainer>
     )
 }
+
+const EducationListContainer = styled.div`
+    width: 70%;
+`
+EducationListContainer.displayName = 'EducationListContainer'

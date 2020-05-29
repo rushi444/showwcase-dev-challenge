@@ -43,5 +43,3 @@ const DashboardContainer = styled.div`
     align-self: center;
   }
 `;
-
-DashboardContainer.displayName = 'Dashboard';
