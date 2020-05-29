@@ -1,15 +1,21 @@
 import React, { FC, useState } from 'react';
-import styled from 'styled-components';
 import { useHistory } from 'react-router-dom';
+import styled from 'styled-components';
+
 import { Button } from '../shared';
+import { useDispatch } from 'react-redux';
+import { submitUserName } from '../redux/actions';
 
 export const Onboard: FC = () => {
   const history = useHistory();
+  const dispatch = useDispatch();
   const [name, setName] = useState<string>('');
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    dispatch(submitUserName(name));
     history.push('/dashboard');
+    // setName('');
   };
 
   return (
@@ -30,9 +36,7 @@ export const Onboard: FC = () => {
         />
         <Button
           disabled={name.length < 1}
-          onClick={(e: React.MouseEvent<HTMLElement>) =>
-            handleSubmit(e as any)
-          }>
+          onClick={(e: React.MouseEvent<HTMLElement | any>) => handleSubmit(e)}>
           Enter
         </Button>
       </NameForm>

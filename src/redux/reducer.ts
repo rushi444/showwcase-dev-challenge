@@ -1,5 +1,6 @@
+import { SUBMIT_USER_NAME } from "./actions"
 
-interface IInitialState {
+export interface IInitialState {
     userName: string
 }
 
@@ -14,6 +15,10 @@ interface IAction {
 
 export const rootReducer = (state = initialState, action: IAction) => {
     switch (action.type) {
+        case SUBMIT_USER_NAME:
+            return {
+                ...state, userName: action.payload
+            }
         default:
             return state
     }
