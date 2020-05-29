@@ -2,9 +2,9 @@ import React, { FC, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 
-import { Button } from '../shared';
+import { Button } from '../../shared';
 import { useDispatch } from 'react-redux';
-import { submitUserName } from '../redux/actions';
+import { submitUserName } from '../../redux/actions';
 
 export const Onboard: FC = () => {
   const history = useHistory();
@@ -15,7 +15,7 @@ export const Onboard: FC = () => {
     e.preventDefault();
     dispatch(submitUserName(name));
     history.push('/dashboard');
-    // setName('');
+    setName('');
   };
 
   return (

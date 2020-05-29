@@ -14,6 +14,9 @@ export const Button = styled.button`
     color: white;
     background-color: #646df6;
   }
+  :focus {
+    outline: none;
+  }
 `;
 
 Button.displayName = 'Button'

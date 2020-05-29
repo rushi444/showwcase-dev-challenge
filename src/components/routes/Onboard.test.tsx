@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow, mount } from 'enzyme';
 import { Onboard } from './Onboard';
 import { Provider } from 'react-redux';
-import { storeFactory } from '../test/testUtils';
+import { storeFactory } from '../../test/testUtils';
 
 it('Onboard Component Renders!', () => {
   const store = storeFactory({});
