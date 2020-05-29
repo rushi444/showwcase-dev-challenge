@@ -1,8 +1,16 @@
 import React from 'react';
-import { render } from 'enzyme';
+import { shallow } from 'enzyme';
 import { App } from './App';
+import { storeFactory } from './test/testUtils';
+import { Provider } from 'react-redux';
 
 it('App Renders!', () => {
-  const wrapper = render(<App />);
-  expect(wrapper.length).toBe(1);
+  const store = storeFactory({});
+  const wrapper = shallow(
+    <Provider store={store}>
+      <App />
+    </Provider>,
+  );
+  const app = wrapper.dive().dive().find('.App');
+  expect(app.length).toBe(1);
 });
