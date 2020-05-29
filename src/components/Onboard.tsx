@@ -29,6 +29,7 @@ export const Onboard: FC = () => {
           }
         />
         <Button
+          disabled={name.length < 1}
           onClick={(e: React.MouseEvent<HTMLElement>) =>
             handleSubmit(e as any)
           }>

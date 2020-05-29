@@ -15,3 +15,5 @@ export const Button = styled.button`
     background-color: #646df6;
   }
 `;
+
+Button.displayName = 'Button'
