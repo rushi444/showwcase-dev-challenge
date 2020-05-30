@@ -2,6 +2,7 @@ import React, { useState, FC } from 'react';
 import { Button } from '../../shared/index';
 import Modal from 'react-modal';
 import styled from 'styled-components';
+import { NameOfSchool } from './form/NameOfSchool';
 
 export const AddEducation: FC = () => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
@@ -14,13 +15,11 @@ export const AddEducation: FC = () => {
         onRequestClose={() => setIsModalOpen(false)}
         style={customStyles}
         contentLabel='Add Education'>
-        <form style={{ height: '60vh' }}>
-          <input />
-          <button>tab navigation</button>
-          <button>stays</button>
-          <button>inside</button>
-          <button>the modal</button>
-        </form>
+        <AddEducationForm>
+          <NameOfSchool />
+
+          <h1>hi</h1>
+        </AddEducationForm>
       </Modal>
     </AddEducationContainer>
   );
@@ -37,7 +36,13 @@ const AddEducationContainer = styled.div`
   }
 `;
 
-AddEducationContainer.displayName = 'AddEducationContainer'
+AddEducationContainer.displayName = 'AddEducationContainer';
+
+const AddEducationForm = styled.form`
+  height: 70vh;
+  width: 30vw;
+  max-width: 370px;
+`;
 
 const customStyles = {
   content: {

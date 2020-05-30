@@ -3,8 +3,8 @@ import { useSelector, shallowEqual } from 'react-redux';
 import styled from 'styled-components';
 
 import { IInitialState } from '../../redux/reducer';
-import { Education } from '../Education/Education';
-import { AddEducation } from '../Education/AddEducation';
+import { Education } from '../education/Education';
+import { AddEducation } from '../education/AddEducation';
 
 interface StateProps {
   userName: string;
