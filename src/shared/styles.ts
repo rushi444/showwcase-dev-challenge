@@ -21,3 +21,13 @@ export const Button = styled.button`
 
 Button.displayName = 'Button'
 
+export const FormInput = styled.input`
+  border: none;
+  border-bottom: 1px solid #646df6;
+  width: 100%;
+  margin-bottom: 3%;
+  font-size: 1rem;
+  :focus {
+    outline: none;
+  }
+`

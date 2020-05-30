@@ -3,6 +3,7 @@ import { useSelector, useDispatch, shallowEqual } from 'react-redux';
 import { IInitialState } from '../../shared/types';
 import { getAllSchools } from '../../redux/actions';
 import styled from 'styled-components';
+import { FormInput } from '../../shared/styles';
 
 interface StateProps {
   searchResults: string[];
@@ -42,17 +43,11 @@ export const SchoolDropdown = () => {
       setShowResults(false);
     }
   };
-  
+
   return (
-    <div
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        position: 'relative',
-      }}
-      ref={wrapperRef}>
+    <SchoolDropDownContainer ref={wrapperRef}>
       Name of School:
-      <input
+      <FormInput
         type='text'
         placeholder='Name of School'
         value={school}
@@ -72,9 +67,15 @@ export const SchoolDropdown = () => {
           ))}
         </SearchResultsList>
       )}
-    </div>
+    </SchoolDropDownContainer>
   );
 };
+
+const SchoolDropDownContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  position: relative;
+`;
 
 const SearchResultsList = styled.ul`
   position: absolute;
@@ -95,4 +96,4 @@ const SearchResultsList = styled.ul`
   }
 `;
 
-SearchResultsList.displayName = 'SearchResultsList'
+SearchResultsList.displayName = 'SearchResultsList';
