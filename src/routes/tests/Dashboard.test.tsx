@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { Dashboard } from '../Dashboard';
-import { storeFactory } from '../../../test/testUtils';
+import { storeFactory } from '../../test/testUtils';
 import { Provider } from 'react-redux';
 
 it('dashboard component renders', () => {

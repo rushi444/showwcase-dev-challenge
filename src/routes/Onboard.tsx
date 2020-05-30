@@ -2,9 +2,9 @@ import React, { FC, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 
-import { Button } from '../../shared/styles';
+import { Button } from '../shared/styles';
 import { useDispatch } from 'react-redux';
-import { submitUserName } from '../../redux/actions';
+import { submitUserName } from '../redux/actions';
 
 export const Onboard: FC = () => {
   const history = useHistory();

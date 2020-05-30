@@ -1,7 +1,7 @@
 import React from 'react';
-import { Onboard } from './components/routes/Onboard';
+import { Onboard } from './routes/Onboard';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { Dashboard } from './components/routes/Dashboard';
+import { Dashboard } from './routes/Dashboard';
 
 export const App = () => {
   return (

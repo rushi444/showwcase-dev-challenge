@@ -2,10 +2,10 @@ import React, { FC } from 'react';
 import { useSelector, shallowEqual } from 'react-redux';
 import styled from 'styled-components';
 
-import { IInitialState } from '../../shared/types';
-import { EducationTitleList } from '../EducationTitleList';
-import { EducationList } from '../EducationList';
-import { AddEducation } from '../AddEducation';
+import { IInitialState } from '../shared/types';
+import { EducationTitleList } from '../components/EducationTitleList';
+import { EducationList } from '../components/EducationList';
+import { AddEducation } from '../components/AddEducation';
 
 interface StateProps {
   userName: string;
