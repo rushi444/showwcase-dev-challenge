@@ -1,5 +1,5 @@
 import React, { useState, FC } from 'react';
-import { Button } from '../../shared/styles';
+import { Button } from '../shared/styles';
 import Modal from 'react-modal';
 import styled from 'styled-components';
 import { SchoolDropdown } from './form/SchoolDropdown';

@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useSelector, useDispatch, shallowEqual } from 'react-redux';
-import { IInitialState } from '../../../shared/types';
-import { getAllSchools } from '../../../redux/actions';
+import { IInitialState } from '../../shared/types';
+import { getAllSchools } from '../../redux/actions';
 import styled from 'styled-components';
 
 interface StateProps {

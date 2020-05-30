@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow, mount } from 'enzyme';
 import { SchoolDropdown } from '../SchoolDropdown';
 import { Provider } from 'react-redux';
-import { storeFactory } from '../../../../test/testUtils';
+import { storeFactory } from '../../../test/testUtils';
 
 it('dropdown component renders', () => {
   const store = storeFactory({});
