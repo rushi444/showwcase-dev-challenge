@@ -8,7 +8,7 @@ interface StateProps {
   searchResults: string[];
 }
 
-export const NameOfSchool = () => {
+export const SchoolDropdown = () => {
   const [school, setSchool] = useState<string>('');
   const [showResults, setShowResults] = useState<boolean>(false);
   const wrapperRef = useRef(null);
@@ -94,3 +94,5 @@ const SearchResultsList = styled.ul`
     }
   }
 `;
+
+SearchResultsList.displayName = 'SearchResultsList'

@@ -2,7 +2,7 @@ import React, { useState, FC } from 'react';
 import { Button } from '../../shared/styles';
 import Modal from 'react-modal';
 import styled from 'styled-components';
-import { NameOfSchool } from './form/schoolDropdown';
+import { SchoolDropdown } from './form/SchoolDropdown';
 
 export const AddEducation: FC = () => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
@@ -16,7 +16,7 @@ export const AddEducation: FC = () => {
         style={customStyles}
         contentLabel='Add Education'>
         <AddEducationForm>
-          <NameOfSchool />
+          <SchoolDropdown />
 
           <h1>hi</h1>
         </AddEducationForm>

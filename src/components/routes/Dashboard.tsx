@@ -3,7 +3,8 @@ import { useSelector, shallowEqual } from 'react-redux';
 import styled from 'styled-components';
 
 import { IInitialState } from '../../shared/types';
-import { Education } from '../education/Education';
+import { EducationTitleList } from '../education/EducationTitleList';
+import { EducationList } from '../education/EducationList';
 import { AddEducation } from '../education/AddEducation';
 
 interface StateProps {
@@ -26,10 +27,22 @@ export const Dashboard: FC = () => {
         Education Page
       </h2>
       <AddEducation />
-      <Education />
+      <EducationContainer>
+        <EducationTitleList />
+        <EducationList />
+      </EducationContainer>
     </DashboardContainer>
   );
 };
+
+const EducationContainer = styled.div`
+  border: 1px solid red;
+  height: 70%;
+  display: flex;
+  justify-content: space-around;
+`;
+
+EducationContainer.displayName = 'Education';
 
 const DashboardContainer = styled.div`
   display: flex;
