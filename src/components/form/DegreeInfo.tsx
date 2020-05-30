@@ -6,6 +6,7 @@ export const DegreeInfo = () => {
   const [studyInfo, setStudyInfo] = useState<IDegreeInfoState>({
     degree: '',
     fieldOfStudy: '',
+    GPA: '',
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) =>
@@ -32,6 +33,15 @@ export const DegreeInfo = () => {
           onChange={handleChange}
         />
       </label>
+      <label>
+        GPA: 
+        <FormInput
+          type='number'
+          name='GPA'
+          value={studyInfo.GPA}
+          onChange={handleChange}
+        />
+      </label>
     </DegreeInfoContainer>
   );
 };
@@ -39,12 +49,10 @@ export const DegreeInfo = () => {
 const DegreeInfoContainer = styled.div`
   display: flex;
   flex-direction: column;
-  label {
-    display: block;
-  }
 `;
 
 interface IDegreeInfoState {
   degree: string;
   fieldOfStudy: string;
+  GPA: string;
 }

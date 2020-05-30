@@ -1,9 +1,10 @@
 import React, { useState, FC } from 'react';
 import { Button } from '../shared/styles';
-import Modal from 'react-modal';
 import styled from 'styled-components';
 import { SchoolDropdown } from './form/SchoolDropdown';
 import { DegreeInfo } from './form/DegreeInfo';
+import { DateSelect } from './form/DateSelect';
+import Modal from 'react-modal';
 
 export const AddEducation: FC = () => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
@@ -18,8 +19,8 @@ export const AddEducation: FC = () => {
         contentLabel='Add Education'>
         <AddEducationForm>
           <SchoolDropdown />
-
           <DegreeInfo />
+          <DateSelect />
         </AddEducationForm>
       </Modal>
     </AddEducationContainer>
