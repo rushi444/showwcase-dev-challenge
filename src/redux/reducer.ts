@@ -1,18 +1,9 @@
-import { SUBMIT_USER_NAME, GET_ALL_SCHOOLS } from "./actions"
-
-export interface IInitialState {
-    userName: string
-    searchResults: string[]
-}
+import { SUBMIT_USER_NAME, GET_ALL_SCHOOLS } from '../shared/constants'
+import { IInitialState, IAction, ISchool } from '../shared/types'
 
 const initialState: IInitialState = {
     userName: '',
     searchResults: []
-}
-
-interface IAction {
-    type: string
-    payload: any
 }
 
 export const rootReducer = (state = initialState, action: IAction) => {
@@ -31,9 +22,3 @@ export const rootReducer = (state = initialState, action: IAction) => {
 
 }
 
-interface ISchool {
-    web_page: string
-    country: string
-    domain: string
-    name: string
-}

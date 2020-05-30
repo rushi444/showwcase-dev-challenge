@@ -1,8 +1,8 @@
 import React, { useState, FC } from 'react';
-import { Button } from '../../shared/index';
+import { Button } from '../../shared/styles';
 import Modal from 'react-modal';
 import styled from 'styled-components';
-import { NameOfSchool } from './form/NameOfSchool';
+import { NameOfSchool } from './form/schoolDropdown';
 
 export const AddEducation: FC = () => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);

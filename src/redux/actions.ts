@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-export const SUBMIT_USER_NAME = 'SUBMIT_USER_NAME'
+import { SUBMIT_USER_NAME, GET_ALL_SCHOOLS } from '../shared/constants'
 
 export const submitUserName = (name: string) => (dispatch: any) => {
     try {
@@ -9,8 +9,6 @@ export const submitUserName = (name: string) => (dispatch: any) => {
         console.log(err)
     }
 }
-
-export const GET_ALL_SCHOOLS = 'GET_ALL_SCHOOLS'
 
 export const getAllSchools = (searchText: string) => async (dispatch: any) => {
     try {
