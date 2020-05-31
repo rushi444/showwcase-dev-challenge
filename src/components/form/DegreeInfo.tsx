@@ -56,4 +56,6 @@ const DegreeInfoContainer = styled.div`
   flex-direction: column;
 `;
 
+DegreeInfoContainer.displayName = 'DegreeInfo'
+
 

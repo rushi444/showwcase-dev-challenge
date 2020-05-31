@@ -6,10 +6,10 @@ import { DateObject } from '../../shared/types';
 
 interface IProps {
   dates: DateObject;
-  setDates: (arg0: DateObject) => void
+  setDates: (arg0: DateObject) => void;
 }
 
-export const DateSelect: FC<IProps> = ({ dates, setDates }) => {
+const DateSelect: FC<IProps> = ({ dates, setDates }) => {
   const handleChange = (e: any) => {
     setDates({ ...dates, [e.target.name]: e.target.value });
   };
@@ -30,6 +30,7 @@ export const DateSelect: FC<IProps> = ({ dates, setDates }) => {
             ))}
           </select>
           <select
+            id='yearStart'
             name='yearStart'
             onChange={handleChange}
             value={dates.yearStart}>
@@ -49,6 +50,7 @@ export const DateSelect: FC<IProps> = ({ dates, setDates }) => {
         End Date(or Expected):
         <div>
           <select
+            id='monthEnd'
             name='monthEnd'
             onChange={handleChange}
             value={dates.monthEnd}>
@@ -59,7 +61,7 @@ export const DateSelect: FC<IProps> = ({ dates, setDates }) => {
               </option>
             ))}
           </select>
-          <select name='yearEnd' onChange={handleChange} value={dates.yearEnd}>
+          <select id='yearEnd' name='yearEnd' onChange={handleChange} value={dates.yearEnd}>
             <option></option>
             {Years.map((year, index) => (
               <option key={index} value={year}>
@@ -92,3 +94,5 @@ const SelectContainer = styled.div`
     }
   }
 `;
+
+SelectContainer.displayName = 'DateSelect';

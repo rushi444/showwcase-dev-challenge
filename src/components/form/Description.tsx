@@ -18,7 +18,7 @@ const Description: FC<IProps> = ({ bullets, setBullets }) => {
     setText('');
   };
   return (
-    <div style={{ marginTop: '3%' }}>
+    <div id='description' style={{ marginTop: '3%' }}>
       Description
       <BulletsList>
         {bullets.map((bullet, index) => (
