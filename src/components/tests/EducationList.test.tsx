@@ -1,9 +1,12 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { EducationList } from '../EducationList';
+import { Provider } from 'react-redux';
+import { storeFactory } from '../../test/testUtils';
 
 it('Education List renders', () => {
-  const wrapper = shallow(<EducationList />);
-  const educationListContainer = wrapper.find('EducationListContainer');
+  const store = storeFactory({})
+  const wrapper = shallow(<Provider store={store}><EducationList /></Provider>);
+  const educationListContainer = wrapper.find('EducationList');
   expect(educationListContainer.length).toBe(1);
 });
