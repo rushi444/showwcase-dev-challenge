@@ -1,14 +1,19 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
-import { SchoolDropdown } from '../SchoolDropdown';
+import { SchoolDropdownMemo } from '../SchoolDropdown';
 import { Provider } from 'react-redux';
 import { storeFactory } from '../../../test/testUtils';
 
+const props = {
+  school: '',
+  setSchool: () => null,
+};
+
 it('dropdown component renders', () => {
   const store = storeFactory({});
-  const wrapper = shallow(
+  const wrapper = mount(
     <Provider store={store}>
-      <SchoolDropdown />
+      <SchoolDropdownMemo {...props} />
     </Provider>,
   );
   const dropdown = wrapper.find('SchoolDropdown');
@@ -22,7 +27,7 @@ describe('displays dropdown items accurately', () => {
   beforeEach(() => {
     wrapper = mount(
       <Provider store={store}>
-        <SchoolDropdown />
+        <SchoolDropdownMemo {...props} />
       </Provider>,
     );
   });

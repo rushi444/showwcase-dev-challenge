@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, FC } from 'react';
 import { useSelector, useDispatch, shallowEqual } from 'react-redux';
 import { IInitialState } from '../../shared/types';
 import { getAllSchools } from '../../redux/actions';
@@ -9,8 +9,12 @@ interface StateProps {
   searchResults: string[];
 }
 
-export const SchoolDropdown = () => {
-  const [school, setSchool] = useState<string>('');
+interface IProps {
+  school: string;
+  setSchool: (arg0: string) => void;
+}
+
+const SchoolDropdown: FC<IProps> = ({ school, setSchool }) => {
   const [showResults, setShowResults] = useState<boolean>(false);
   const wrapperRef = useRef(null);
   const dispatch = useDispatch();
@@ -43,7 +47,6 @@ export const SchoolDropdown = () => {
       setShowResults(false);
     }
   };
-
   return (
     <SchoolDropDownContainer ref={wrapperRef}>
       Name of School:
@@ -70,6 +73,12 @@ export const SchoolDropdown = () => {
     </SchoolDropDownContainer>
   );
 };
+
+const areEqual = (prevProps: IProps, nextProps: IProps) => {
+  return prevProps.school === nextProps.school;
+};
+
+export const SchoolDropdownMemo = React.memo(SchoolDropdown, areEqual);
 
 const SchoolDropDownContainer = styled.div`
   display: flex;

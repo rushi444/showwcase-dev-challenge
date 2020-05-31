@@ -1,13 +1,28 @@
 import React, { useState, FC } from 'react';
 import { Button } from '../shared/styles';
 import styled from 'styled-components';
-import { SchoolDropdown } from './form/SchoolDropdown';
-import { DegreeInfo } from './form/DegreeInfo';
-import { DateSelect } from './form/DateSelect';
+import { SchoolDropdownMemo } from './form/SchoolDropdown';
+import { DegreeInfoMemo } from './form/DegreeInfo';
+import { DateSelectMemo} from './form/DateSelect';
+import { DescriptionMemo } from './form/Description';
 import Modal from 'react-modal';
+import { DateObject, DegreeInfoObject } from '../shared/types';
 
 export const AddEducation: FC = () => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+  const [school, setSchool] = useState<string>('');
+  const [dates, setDates] = useState<DateObject>({
+    monthStart: '',
+    yearStart: '',
+    monthEnd: '',
+    yearEnd: '',
+  });
+  const [studyInfo, setStudyInfo] = useState<DegreeInfoObject>({
+    degree: '',
+    fieldOfStudy: '',
+    GPA: '',
+  });
+  const [bullets, setBullets] = useState<string[]>([]);
   return (
     <AddEducationContainer>
       <Button onClick={() => setIsModalOpen(true)}>Add Education</Button>
@@ -18,10 +33,14 @@ export const AddEducation: FC = () => {
         style={customStyles}
         contentLabel='Add Education'>
         <AddEducationForm>
-          <SchoolDropdown />
-          <DegreeInfo />
-          <DateSelect />
+          <SchoolDropdownMemo school={school} setSchool={setSchool} />
+          <DegreeInfoMemo studyInfo={studyInfo} setStudyInfo={setStudyInfo} />
+          <DateSelectMemo dates={dates} setDates={setDates}/>
+          <DescriptionMemo bullets={bullets} setBullets={setBullets}/>
         </AddEducationForm>
+        <div style={{display: 'flex', alignItems: 'center', marginTop: '5%'}}>
+          <SubmitButton>Submit</SubmitButton>
+        </div>
       </Modal>
     </AddEducationContainer>
   );
@@ -41,9 +60,19 @@ const AddEducationContainer = styled.div`
 AddEducationContainer.displayName = 'AddEducationContainer';
 
 const AddEducationForm = styled.form`
-  height: 70vh;
+  min-height: 50vh;
   width: 30vw;
   max-width: 370px;
+`;
+
+const SubmitButton = styled(Button)`
+  background-color: #646df6;
+  margin: 0 auto;
+  color: white;
+  :hover {
+    background-color: white;
+    color: #646df6;
+  }
 `;
 
 const customStyles = {

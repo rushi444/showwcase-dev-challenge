@@ -1,22 +1,20 @@
-import React, { useState } from 'react';
+import React, { FC } from 'react';
 import styled from 'styled-components';
 
 import { Months, Years } from '../../shared/constants';
+import { DateObject } from '../../shared/types';
 
-export const DateSelect = () => {
-  const [dates, setDates] = useState({
-    monthStart: '',
-    yearStart: '',
-    monthEnd: '',
-    yearEnd: '',
-  });
+interface IProps {
+  dates: DateObject;
+  setDates: (arg0: DateObject) => void
+}
 
+export const DateSelect: FC<IProps> = ({ dates, setDates }) => {
   const handleChange = (e: any) => {
     setDates({ ...dates, [e.target.name]: e.target.value });
   };
-  console.log(dates);
   return (
-    <DateSelectContainer>
+    <div>
       <SelectContainer>
         Start Date:
         <div>
@@ -36,15 +34,14 @@ export const DateSelect = () => {
             onChange={handleChange}
             value={dates.yearStart}>
             <option></option>
-            {Years.map((year, index) => {
-              if (year <= new Date().getFullYear()) {
-                return (
+            {Years.map(
+              (year, index) =>
+                year <= new Date().getFullYear() && (
                   <option key={index} value={year}>
                     {year}
                   </option>
-                );
-              }
-            })}
+                ),
+            )}
           </select>
         </div>
       </SelectContainer>
@@ -72,11 +69,15 @@ export const DateSelect = () => {
           </select>
         </div>
       </SelectContainer>
-    </DateSelectContainer>
+    </div>
   );
 };
 
-const DateSelectContainer = styled.div``;
+const areEqual = (prevProps: IProps, nextProps: IProps) => {
+  return prevProps.dates === nextProps.dates;
+};
+
+export const DateSelectMemo = React.memo(DateSelect, areEqual);
 
 const SelectContainer = styled.div`
   display: flex;
@@ -86,5 +87,8 @@ const SelectContainer = styled.div`
     border: none;
     border-bottom: 1px solid #646df6;
     margin-right: 5px;
+    :focus {
+      outline: none;
+    }
   }
 `;

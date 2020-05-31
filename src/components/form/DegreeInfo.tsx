@@ -1,18 +1,17 @@
-import React, { useState } from 'react';
+import React, { FC } from 'react';
 import styled from 'styled-components';
 import { FormInput } from '../../shared/styles';
+import { DegreeInfoObject } from '../../shared/types';
 
-export const DegreeInfo = () => {
-  const [studyInfo, setStudyInfo] = useState<IDegreeInfoState>({
-    degree: '',
-    fieldOfStudy: '',
-    GPA: '',
-  });
+interface IProps {
+  studyInfo: DegreeInfoObject
+  setStudyInfo: (arg0: DegreeInfoObject) => void
+}
 
+const DegreeInfo:FC<IProps> = ({studyInfo, setStudyInfo}) => {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) =>
     setStudyInfo({ ...studyInfo, [e.target.name]: e.target.value });
 
-  console.log(studyInfo);
   return (
     <DegreeInfoContainer>
       <label>
@@ -46,13 +45,15 @@ export const DegreeInfo = () => {
   );
 };
 
+const areEqual = (prevProps: IProps, nextProps: IProps) => {
+  return prevProps.studyInfo === nextProps.studyInfo;
+};
+
+export const DegreeInfoMemo = React.memo(DegreeInfo, areEqual)
+
 const DegreeInfoContainer = styled.div`
   display: flex;
   flex-direction: column;
 `;
 
-interface IDegreeInfoState {
-  degree: string;
-  fieldOfStudy: string;
-  GPA: string;
-}
+

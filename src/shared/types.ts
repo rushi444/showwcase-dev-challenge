@@ -16,3 +16,19 @@ export interface ISchool {
     domain: string
     name: string
 }
+
+
+//Form States
+
+export interface DateObject {
+    monthStart: string;
+    yearStart: string;
+    monthEnd: string;
+    yearEnd: string;
+  }
+
+  export interface DegreeInfoObject {
+    degree: string;
+    fieldOfStudy: string;
+    GPA: string;
+  }
