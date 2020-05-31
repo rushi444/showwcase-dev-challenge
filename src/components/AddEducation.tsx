@@ -3,12 +3,16 @@ import { Button } from '../shared/styles';
 import styled from 'styled-components';
 import { SchoolDropdownMemo } from './form/SchoolDropdown';
 import { DegreeInfoMemo } from './form/DegreeInfo';
-import { DateSelectMemo} from './form/DateSelect';
+import { DateSelectMemo } from './form/DateSelect';
 import { DescriptionMemo } from './form/Description';
 import Modal from 'react-modal';
 import { DateObject, DegreeInfoObject } from '../shared/types';
+import { useDispatch } from 'react-redux';
+
+import { addNewEducation } from '../redux/actions';
 
 export const AddEducation: FC = () => {
+  const dispatch = useDispatch();
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [school, setSchool] = useState<string>('');
   const [dates, setDates] = useState<DateObject>({
@@ -23,6 +27,19 @@ export const AddEducation: FC = () => {
     GPA: '',
   });
   const [bullets, setBullets] = useState<string[]>([]);
+
+  const handleSubmit = (e: any) => {
+    e.preventDefault();
+    const educationInfo = {
+      school,
+      studyInfo,
+      dates,
+      bullets,
+    };
+    dispatch(addNewEducation(educationInfo));
+    setIsModalOpen(false);
+  };
+
   return (
     <AddEducationContainer>
       <Button onClick={() => setIsModalOpen(true)}>Add Education</Button>
@@ -32,14 +49,14 @@ export const AddEducation: FC = () => {
         onRequestClose={() => setIsModalOpen(false)}
         style={customStyles}
         contentLabel='Add Education'>
-        <AddEducationForm>
+        <AddEducationForm onSubmit={handleSubmit}>
           <SchoolDropdownMemo school={school} setSchool={setSchool} />
           <DegreeInfoMemo studyInfo={studyInfo} setStudyInfo={setStudyInfo} />
-          <DateSelectMemo dates={dates} setDates={setDates}/>
-          <DescriptionMemo bullets={bullets} setBullets={setBullets}/>
+          <DateSelectMemo dates={dates} setDates={setDates} />
+          <DescriptionMemo bullets={bullets} setBullets={setBullets} />
         </AddEducationForm>
-        <div style={{display: 'flex', alignItems: 'center', marginTop: '5%'}}>
-          <SubmitButton>Submit</SubmitButton>
+        <div style={{ display: 'flex', alignItems: 'center', marginTop: '5%' }}>
+          <SubmitButton onClick={handleSubmit}>Submit</SubmitButton>
         </div>
       </Modal>
     </AddEducationContainer>

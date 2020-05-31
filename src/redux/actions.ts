@@ -1,6 +1,7 @@
 import axios from 'axios'
 
-import { SUBMIT_USER_NAME, GET_ALL_SCHOOLS } from '../shared/constants'
+import { SUBMIT_USER_NAME, GET_ALL_SCHOOLS, ADD_NEW_EDUCATION } from '../shared/constants'
+import { EducationObject } from '../shared/types'
 
 export const submitUserName = (name: string) => (dispatch: any) => {
     try {
@@ -18,3 +19,12 @@ export const getAllSchools = (searchText: string) => async (dispatch: any) => {
         console.log(err)
     }
 }
+
+export const addNewEducation = (newEducation: EducationObject) => (dispatch: any) => {
+    try {
+        dispatch({ type: ADD_NEW_EDUCATION, payload: newEducation })
+    } catch (err) {
+        console.log(err)
+    }
+}
+

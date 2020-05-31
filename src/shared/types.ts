@@ -3,6 +3,7 @@
 export interface IInitialState {
     userName: string
     searchResults: string[]
+    educationList: EducationObject[]
 }
 
 export interface IAction {
@@ -15,6 +16,14 @@ export interface ISchool {
     country: string
     domain: string
     name: string
+}
+
+//Education Object
+export interface EducationObject {
+    school: string
+    studyInfo: DegreeInfoObject
+    dates: DateObject
+    bullets: string[]
 }
 
 

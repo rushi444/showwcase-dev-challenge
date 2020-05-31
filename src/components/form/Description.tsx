@@ -21,8 +21,8 @@ const Description: FC<IProps> = ({ bullets, setBullets }) => {
     <div style={{ marginTop: '3%' }}>
       Description
       <BulletsList>
-        {bullets.map((bullet) => (
-          <li>» {bullet}</li>
+        {bullets.map((bullet, index) => (
+          <li key={index}>» {bullet}</li>
         ))}
       </BulletsList>
       <div style={{ display: 'flex' }}>

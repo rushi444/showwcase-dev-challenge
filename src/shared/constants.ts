@@ -1,5 +1,6 @@
 export const SUBMIT_USER_NAME = 'SUBMIT_USER_NAME'
 export const GET_ALL_SCHOOLS = 'GET_ALL_SCHOOLS'
+export const ADD_NEW_EDUCATION = 'ADD_NEW_EDUCATION'
 
 export const Months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
 
