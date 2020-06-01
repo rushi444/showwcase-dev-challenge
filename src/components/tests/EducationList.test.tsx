@@ -8,7 +8,7 @@ it('Education List renders', () => {
   const store = storeFactory({})
   const wrapper = shallow(
     <Provider store={store}>
-      <EducationList />
+      <EducationList educationList={[]} />
     </Provider>,
   )
   const educationListContainer = wrapper.find('EducationList')

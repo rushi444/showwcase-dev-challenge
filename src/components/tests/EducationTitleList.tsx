@@ -3,7 +3,7 @@ import { shallow } from 'enzyme'
 import { EducationTitleList } from '../EducationTitleList'
 
 it('Education List renders', () => {
-  const wrapper = shallow(<EducationTitleList />)
+  const wrapper = shallow(<EducationTitleList schoolList={[]} />)
   const educationTitleListContainer = wrapper.find('EducationTitleListContainer')
   expect(educationTitleListContainer.length).toBe(1)
 })

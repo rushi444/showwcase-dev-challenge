@@ -6,13 +6,15 @@ import { IInitialState, EducationObject } from '../shared/types'
 import { EducationTitleList } from '../components/EducationTitleList'
 import { EducationList } from '../components/EducationList'
 import { AddEducation } from '../components/AddEducation'
+import { useHistory } from 'react-router'
 
 interface StateProps {
   userName: string
   educationList: EducationObject[]
 }
 
-export const Dashboard: FC = () => {
+export const Dashboard: FC = () => {  
+  const history = useHistory()
   const { userName, educationList } = useSelector<IInitialState, StateProps>(
     (state: IInitialState) => {
       return {
@@ -23,7 +25,9 @@ export const Dashboard: FC = () => {
     shallowEqual,
   )
 
-  // const titleList = educationList.map((education) => education.school)
+  if (!userName) history.push('/')
+
+  const schoolList = educationList.map((education) => education.school)
 
   return (
     <DashboardContainer>
@@ -33,17 +37,14 @@ export const Dashboard: FC = () => {
       </h2>
       <AddEducation />
       <EducationContainer>
-        <EducationTitleList />
+        <EducationTitleList schoolList={schoolList} />
         <EducationList educationList={educationList} />
       </EducationContainer>
     </DashboardContainer>
   )
 }
 
-// const DashboardMemo = React.memo(Dashboard, areEqual)
-
 const EducationContainer = styled.div`
-  border: 1px solid red;
   height: 70%;
   display: flex;
   justify-content: space-around;
@@ -56,7 +57,6 @@ const DashboardContainer = styled.div`
   flex-direction: column;
   margin: 0 auto;
   justify-content: center;
-  border: 2px solid purple;
   height: 100vh;
   width: 90vw;
   h2 {

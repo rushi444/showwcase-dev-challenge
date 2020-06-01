@@ -11,9 +11,8 @@ export const EducationList: FC<IProps> = ({ educationList }) => {
   console.log(educationList)
   return (
     <EducationListContainer>
-      {/* <h2 style={{ color: '#646df6', textDecoration: 'underline' }}>Education</h2> */}
       {educationList.map((item, index) => (
-        <EducationCard key={index} data={item} />
+        <EducationCard key={index} id={index} data={item} />
       ))}
     </EducationListContainer>
   )
@@ -22,8 +21,8 @@ export const EducationList: FC<IProps> = ({ educationList }) => {
 const EducationListContainer = styled.div`
   width: 75%;
   height: 100%;
-  border: 1px solid black;
   overflow: auto;
+  scroll-behavior: smooth;
   ::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.2);
     border-radius: 10px;

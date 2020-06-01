@@ -5,11 +5,12 @@ import styled from 'styled-components'
 
 interface IProps {
   data: EducationObject
+  id: number
 }
 
-export const EducationCard: FC<IProps> = ({ data }) => {
+export const EducationCard: FC<IProps> = ({ id, data }) => {
   return (
-    <EducationCardContainer>
+    <EducationCardContainer id={`${id}`}>
       <div style={{ display: 'flex', justifyContent: 'space-between' }}>
         <p>{data.school}</p>
         <p>
@@ -44,6 +45,9 @@ const EducationCardContainer = styled.div`
   box-shadow: -0.31px 1.98px 5px 0px rgba(153, 153, 151, 0.6);
   margin-bottom: 1rem;
   margin-right: 1rem;
+  :last-child {
+      margin-bottom: 50%;
+  }
 `
 EducationCardContainer.displayName = 'EducationCardContainer'
 

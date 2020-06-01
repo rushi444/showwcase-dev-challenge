@@ -1,10 +1,34 @@
-import React from 'react'
+import React, { FC, useState } from 'react'
 import styled from 'styled-components'
 
-export const EducationTitleList = () => {
-  return <EducationTitleListContainer>title</EducationTitleListContainer>
+interface IProps {
+  schoolList: string[]
 }
 
-const EducationTitleListContainer = styled.div``
+export const EducationTitleList: FC<IProps> = ({ schoolList }) => {
+  const [focusSchool, setFocusSchool] = useState<number>(0)
+  return (
+    <EducationTitleListContainer>
+      {schoolList.map((school, index) => (
+        <p key={index}>
+          <a
+            style={{ color: index === focusSchool ? '#646df6' : 'black' }}
+            onClick={() => setFocusSchool(index)}
+            href={`#${index}`}
+          >
+            {school}
+          </a>
+        </p>
+      ))}
+    </EducationTitleListContainer>
+  )
+}
+
+const EducationTitleListContainer = styled.div`
+  a {
+    color: black;
+    text-decoration: none;
+  }
+`
 
 EducationTitleListContainer.displayName = 'EducationTitleListContainer'
