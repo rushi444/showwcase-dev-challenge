@@ -30,7 +30,7 @@ describe('Description & bullet points', () => {
     expect(wrapper.props().setBullets).toBeCalledTimes(1)
   })
 
-  it('bullet cannot be added if empty', () => {
+  it('bullet not added if input is empty', () => {
     const bulletInputButton = wrapper.find('Button')
     bulletInputButton.simulate('click')
     expect(wrapper.props().bullets.length).toBe(0)

@@ -26,7 +26,12 @@ const DateSelect: FC<IProps> = ({ dates, setDates }) => {
               </option>
             ))}
           </select>
-          <select id="yearStart" name="yearStart" onChange={handleChange} value={dates.yearStart}>
+          <select
+            data-test="yearStart"
+            name="yearStart"
+            onChange={handleChange}
+            value={dates.yearStart}
+          >
             <option></option>
             {Years.map(
               (year, index) =>
@@ -42,7 +47,12 @@ const DateSelect: FC<IProps> = ({ dates, setDates }) => {
       <SelectContainer>
         End Date(or Expected):
         <div>
-          <select id="monthEnd" name="monthEnd" onChange={handleChange} value={dates.monthEnd}>
+          <select
+            data-test="monthEnd"
+            name="monthEnd"
+            onChange={handleChange}
+            value={dates.monthEnd}
+          >
             <option></option>
             {Months.map((month, index) => (
               <option key={index} value={month}>
@@ -50,7 +60,7 @@ const DateSelect: FC<IProps> = ({ dates, setDates }) => {
               </option>
             ))}
           </select>
-          <select id="yearEnd" name="yearEnd" onChange={handleChange} value={dates.yearEnd}>
+          <select data-test="yearEnd" name="yearEnd" onChange={handleChange} value={dates.yearEnd}>
             <option></option>
             {Years.map((year, index) => (
               <option key={index} value={year}>

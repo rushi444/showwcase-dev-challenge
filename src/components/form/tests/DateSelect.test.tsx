@@ -25,19 +25,19 @@ describe('renders correct amount of options', () => {
   })
 
   it('12 months and empty options are rendered', () => {
-    const monthEndSelect = wrapper.find('#monthEnd')
+    const monthEndSelect = wrapper.find("[data-test='monthEnd']")
     const options = monthEndSelect.find('option')
     expect(options.length).toBe(13)
   })
 
   it('yearStart renders 32 years', () => {
-    const yearStartSelect = wrapper.find('#yearStart')
+    const yearStartSelect = wrapper.find("[data-test='yearStart']")
     const options = yearStartSelect.find('option')
     expect(options.length).toBe(32)
   })
   // End year has 5 years into the future
   it('yearEnd renders 37 years', () => {
-    const yearEndSelect = wrapper.find('#yearEnd')
+    const yearEndSelect = wrapper.find("[data-test='yearEnd']")
     const options = yearEndSelect.find('option')
     expect(options.length).toBe(37)
   })
