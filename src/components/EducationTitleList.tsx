@@ -25,6 +25,8 @@ export const EducationTitleList: FC<IProps> = ({ schoolList }) => {
 }
 
 const EducationTitleListContainer = styled.div`
+  height: 100%;
+  overflow: auto;
   a {
     color: black;
     text-decoration: none;

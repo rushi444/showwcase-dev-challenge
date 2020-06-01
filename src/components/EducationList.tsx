@@ -17,6 +17,8 @@ export const EducationList: FC<IProps> = ({ educationList }) => {
   )
 }
 
+//**Need to find a way to reduce height of scrollbar to make up for whitespace under last card */
+
 const EducationListContainer = styled.div`
   width: 75%;
   height: 100%;
