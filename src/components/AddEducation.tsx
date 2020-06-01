@@ -27,12 +27,6 @@ export const AddEducation: FC = () => {
     GPA: '',
   })
   const [bullets, setBullets] = useState<string[]>([])
-  const [errors, setErrors] = useState({
-    school: false,
-    dates: false,
-    studyInfo: false,
-    bullets: false,
-  })
 
   const handleSubmit = (e: any) => {
     e.preventDefault()
@@ -42,12 +36,15 @@ export const AddEducation: FC = () => {
       dates,
       bullets,
     }
-    setErrors({ ...validateForm(school, studyInfo, dates, bullets, errors) })
-    if (!errors.school && !errors.studyInfo && !errors.dates && !errors.bullets) {
+    if (validateForm(school, studyInfo, dates, bullets)) {
+      alert('Please fill in all Fields')
+    } else {
       dispatch(addNewEducation(educationInfo))
       setIsModalOpen(false)
     }
   }
+
+  //**Chose to Build out form components, instead of using ex. formik, react-select */
 
   return (
     <AddEducationContainer>
@@ -61,13 +58,9 @@ export const AddEducation: FC = () => {
       >
         <AddEducationForm onSubmit={handleSubmit}>
           <SchoolDropdownMemo school={school} setSchool={setSchool} />
-          {errors.school && <ErrorMessage>*School Required</ErrorMessage>}
           <DegreeInfoMemo studyInfo={studyInfo} setStudyInfo={setStudyInfo} />
-          {errors.studyInfo && <ErrorMessage>*School Info Required</ErrorMessage>}
           <DateSelectMemo dates={dates} setDates={setDates} />
-          {errors.dates && <ErrorMessage>*Dates Required</ErrorMessage>}
           <DescriptionMemo bullets={bullets} setBullets={setBullets} />
-          {errors.bullets && <ErrorMessage>*Description Required</ErrorMessage>}
         </AddEducationForm>
         <div style={{ display: 'flex', alignItems: 'center', marginTop: '5%' }}>
           <SubmitButton onClick={handleSubmit}>Submit</SubmitButton>

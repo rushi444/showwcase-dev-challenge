@@ -1,26 +1,17 @@
-import { DegreeInfoObject, DateObject, IErrors } from "../../shared/types"
+import { DegreeInfoObject, DateObject } from "../../shared/types"
 
-export const validateForm = (school: string, studyInfo: DegreeInfoObject, dates: DateObject, bullets: string[], errors: IErrors) => {
-    const err = { ...errors }
+export const validateForm = (school: string, studyInfo: DegreeInfoObject, dates: DateObject, bullets: string[]) => {
     if (school === '') {
-        errors.school = true
-    } else {
-        errors.school = false
+        return true
     }
     if (studyInfo.degree === '' || studyInfo.fieldOfStudy === '' || studyInfo.GPA === '') {
-        errors.studyInfo = true
-    } else {
-        errors.studyInfo = false
+        return true
     }
     if (bullets.length === 0) {
-        errors.bullets = true
-    } else {
-        errors.bullets = false
+        return true
     }
     if (dates.monthStart === '' || dates.yearStart === '' || dates.monthEnd === '' || dates.yearEnd === '') {
-        errors.dates = true
-    } else {
-        errors.dates = false
+        return true
     }
-    return err
+    return false
 }
