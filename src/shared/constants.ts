@@ -58,3 +58,33 @@ export const testEducationData = {
     },
     bullets: ['bullet 1', 'bullet 2', 'bullet 3'],
 }
+export const testEducationData2 = {
+    school: 'University of California, Los Angeles2',
+    studyInfo: {
+        degree: 'BS',
+        fieldOfStudy: 'Econ',
+        GPA: '4.0'
+    },
+    dates: {
+        monthStart: 'Jan',
+        yearStart: '2020',
+        monthEnd: 'Jan',
+        yearEnd: '2020',
+    },
+    bullets: ['bullet 1', 'bullet 2', 'bullet 3'],
+}
+export const testEducationData3 = {
+    school: 'University of California, Los Angeles3',
+    studyInfo: {
+        degree: 'BS',
+        fieldOfStudy: 'Econ',
+        GPA: '4.0'
+    },
+    dates: {
+        monthStart: 'Jan',
+        yearStart: '2020',
+        monthEnd: 'Jan',
+        yearEnd: '2020',
+    },
+    bullets: ['bullet 1', 'bullet 2', 'bullet 3'],
+}

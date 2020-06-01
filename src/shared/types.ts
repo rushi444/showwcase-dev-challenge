@@ -42,3 +42,11 @@ export interface DegreeInfoObject {
     fieldOfStudy: string;
     GPA: string;
 }
+
+
+export interface IErrors {
+    school: boolean
+    dates: boolean
+    studyInfo: boolean
+    bullets: boolean
+}

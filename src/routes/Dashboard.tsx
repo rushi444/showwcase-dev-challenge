@@ -13,7 +13,7 @@ interface StateProps {
   educationList: EducationObject[]
 }
 
-export const Dashboard: FC = () => {  
+export const Dashboard: FC = () => {
   const history = useHistory()
   const { userName, educationList } = useSelector<IInitialState, StateProps>(
     (state: IInitialState) => {

@@ -8,7 +8,6 @@ interface IProps {
 }
 
 export const EducationList: FC<IProps> = ({ educationList }) => {
-  console.log(educationList)
   return (
     <EducationListContainer>
       {educationList.map((item, index) => (

@@ -8,7 +8,7 @@ import { DescriptionMemo } from './form/Description'
 import Modal from 'react-modal'
 import { DateObject, DegreeInfoObject } from '../shared/types'
 import { useDispatch } from 'react-redux'
-
+import { validateForm } from '../components/form/formValidation'
 import { addNewEducation } from '../redux/actions'
 
 export const AddEducation: FC = () => {
@@ -27,6 +27,12 @@ export const AddEducation: FC = () => {
     GPA: '',
   })
   const [bullets, setBullets] = useState<string[]>([])
+  const [errors, setErrors] = useState({
+    school: false,
+    dates: false,
+    studyInfo: false,
+    bullets: false,
+  })
 
   const handleSubmit = (e: any) => {
     e.preventDefault()
@@ -36,8 +42,11 @@ export const AddEducation: FC = () => {
       dates,
       bullets,
     }
-    dispatch(addNewEducation(educationInfo))
-    setIsModalOpen(false)
+    setErrors({ ...validateForm(school, studyInfo, dates, bullets, errors) })
+    if (!errors.school && !errors.studyInfo && !errors.dates && !errors.bullets) {
+      dispatch(addNewEducation(educationInfo))
+      setIsModalOpen(false)
+    }
   }
 
   return (
@@ -52,9 +61,13 @@ export const AddEducation: FC = () => {
       >
         <AddEducationForm onSubmit={handleSubmit}>
           <SchoolDropdownMemo school={school} setSchool={setSchool} />
+          {errors.school && <ErrorMessage>*School Required</ErrorMessage>}
           <DegreeInfoMemo studyInfo={studyInfo} setStudyInfo={setStudyInfo} />
+          {errors.studyInfo && <ErrorMessage>*School Info Required</ErrorMessage>}
           <DateSelectMemo dates={dates} setDates={setDates} />
+          {errors.dates && <ErrorMessage>*Dates Required</ErrorMessage>}
           <DescriptionMemo bullets={bullets} setBullets={setBullets} />
+          {errors.bullets && <ErrorMessage>*Description Required</ErrorMessage>}
         </AddEducationForm>
         <div style={{ display: 'flex', alignItems: 'center', marginTop: '5%' }}>
           <SubmitButton onClick={handleSubmit}>Submit</SubmitButton>
@@ -91,6 +104,13 @@ const SubmitButton = styled(Button)`
     background-color: white;
     color: #646df6;
   }
+`
+
+const ErrorMessage = styled.p`
+  padding: 0;
+  margin: 0;
+  font-size: 0.6rem;
+  color: red;
 `
 
 const customStyles = {
