@@ -1,4 +1,4 @@
-// Reducer
+// Redux
 
 export interface IInitialState {
     userName: string
@@ -19,6 +19,7 @@ export interface ISchool {
 }
 
 //Education Object
+
 export interface EducationObject {
     school: string
     studyInfo: DegreeInfoObject

@@ -49,7 +49,6 @@ const OnboardContainer = styled.div`
   justify-content: center;
   align-items: center;
   padding-bottom: 10%;
-  background-image: url('https://i.pinimg.com/originals/69/0c/f6/690cf657788ea89a9ecabc258a0388f1.jpg');
 `
 
 const NameForm = styled.form`

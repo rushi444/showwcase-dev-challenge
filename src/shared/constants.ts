@@ -42,3 +42,19 @@ export const Years = [
     1991,
     1990
 ]
+
+export const testEducationData = {
+    school: 'University of California, Los Angeles',
+    studyInfo: {
+        degree: 'BS',
+        fieldOfStudy: 'Econ',
+        GPA: '4.0'
+    },
+    dates: {
+        monthStart: 'Jan',
+        yearStart: '2020',
+        monthEnd: 'Jan',
+        yearEnd: '2020',
+    },
+    bullets: ['bullet 1', 'bullet 2', 'bullet 3'],
+}

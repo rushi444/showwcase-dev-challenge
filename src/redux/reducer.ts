@@ -1,10 +1,10 @@
-import { SUBMIT_USER_NAME, GET_ALL_SCHOOLS, ADD_NEW_EDUCATION } from '../shared/constants'
+import { SUBMIT_USER_NAME, GET_ALL_SCHOOLS, ADD_NEW_EDUCATION, testEducationData } from '../shared/constants'
 import { IInitialState, IAction, ISchool } from '../shared/types'
 
 const initialState: IInitialState = {
     userName: '',
     searchResults: [],
-    educationList: []
+    educationList: [{...testEducationData}, {...testEducationData}, {...testEducationData}]
 }
 
 export const rootReducer = (state = initialState, action: IAction) => {
