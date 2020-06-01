@@ -31,3 +31,4 @@ export const FormInput = styled.input`
     outline: none;
   }
 `
+FormInput.displayName = 'FormInput'

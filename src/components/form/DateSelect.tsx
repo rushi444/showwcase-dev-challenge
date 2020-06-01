@@ -1,27 +1,24 @@
-import React, { FC } from 'react';
-import styled from 'styled-components';
+import React, { FC } from 'react'
+import styled from 'styled-components'
 
-import { Months, Years } from '../../shared/constants';
-import { DateObject } from '../../shared/types';
+import { Months, Years } from '../../shared/constants'
+import { DateObject } from '../../shared/types'
 
 interface IProps {
-  dates: DateObject;
-  setDates: (arg0: DateObject) => void;
+  dates: DateObject
+  setDates: (arg0: DateObject) => void
 }
 
 const DateSelect: FC<IProps> = ({ dates, setDates }) => {
   const handleChange = (e: any) => {
-    setDates({ ...dates, [e.target.name]: e.target.value });
-  };
+    setDates({ ...dates, [e.target.name]: e.target.value })
+  }
   return (
     <div>
       <SelectContainer>
         Start Date:
         <div>
-          <select
-            name='monthStart'
-            onChange={handleChange}
-            value={dates.monthStart}>
+          <select name="monthStart" onChange={handleChange} value={dates.monthStart}>
             <option></option>
             {Months.map((month, index) => (
               <option key={index} value={month}>
@@ -29,11 +26,7 @@ const DateSelect: FC<IProps> = ({ dates, setDates }) => {
               </option>
             ))}
           </select>
-          <select
-            id='yearStart'
-            name='yearStart'
-            onChange={handleChange}
-            value={dates.yearStart}>
+          <select id="yearStart" name="yearStart" onChange={handleChange} value={dates.yearStart}>
             <option></option>
             {Years.map(
               (year, index) =>
@@ -49,11 +42,7 @@ const DateSelect: FC<IProps> = ({ dates, setDates }) => {
       <SelectContainer>
         End Date(or Expected):
         <div>
-          <select
-            id='monthEnd'
-            name='monthEnd'
-            onChange={handleChange}
-            value={dates.monthEnd}>
+          <select id="monthEnd" name="monthEnd" onChange={handleChange} value={dates.monthEnd}>
             <option></option>
             {Months.map((month, index) => (
               <option key={index} value={month}>
@@ -61,7 +50,7 @@ const DateSelect: FC<IProps> = ({ dates, setDates }) => {
               </option>
             ))}
           </select>
-          <select id='yearEnd' name='yearEnd' onChange={handleChange} value={dates.yearEnd}>
+          <select id="yearEnd" name="yearEnd" onChange={handleChange} value={dates.yearEnd}>
             <option></option>
             {Years.map((year, index) => (
               <option key={index} value={year}>
@@ -72,14 +61,14 @@ const DateSelect: FC<IProps> = ({ dates, setDates }) => {
         </div>
       </SelectContainer>
     </div>
-  );
-};
+  )
+}
 
 const areEqual = (prevProps: IProps, nextProps: IProps) => {
-  return prevProps.dates === nextProps.dates;
-};
+  return prevProps.dates === nextProps.dates
+}
 
-export const DateSelectMemo = React.memo(DateSelect, areEqual);
+export const DateSelectMemo = React.memo(DateSelect, areEqual)
 
 const SelectContainer = styled.div`
   display: flex;
@@ -93,6 +82,6 @@ const SelectContainer = styled.div`
       outline: none;
     }
   }
-`;
+`
 
-SelectContainer.displayName = 'DateSelect';
+SelectContainer.displayName = 'DateSelect'

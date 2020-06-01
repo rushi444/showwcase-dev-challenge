@@ -34,10 +34,10 @@ export interface DateObject {
     yearStart: string;
     monthEnd: string;
     yearEnd: string;
-  }
+}
 
-  export interface DegreeInfoObject {
+export interface DegreeInfoObject {
     degree: string;
     fieldOfStudy: string;
     GPA: string;
-  }
+}
