@@ -1,10 +1,10 @@
-import { SUBMIT_USER_NAME, GET_ALL_SCHOOLS, ADD_NEW_EDUCATION, testEducationData, testEducationData2, testEducationData3, DELETE_EDUCATION } from '../shared/constants'
+import { SUBMIT_USER_NAME, GET_ALL_SCHOOLS, ADD_NEW_EDUCATION, DELETE_EDUCATION } from '../shared/constants'
 import { IInitialState, IAction, ISchool } from '../shared/types'
 
 const initialState: IInitialState = {
     userName: '',
     searchResults: [],
-    educationList: [{ ...testEducationData }, { ...testEducationData2 }, { ...testEducationData3 }]
+    educationList: []
 }
 
 export const rootReducer = (state = initialState, action: IAction) => {
@@ -21,10 +21,10 @@ export const rootReducer = (state = initialState, action: IAction) => {
             return {
                 ...state, educationList: [action.payload, ...state.educationList]
             }
-        case DELETE_EDUCATION: 
-        return {
-            ...state, educationList: state.educationList.filter((education) => education.id !== action.payload)
-        }
+        case DELETE_EDUCATION:
+            return {
+                ...state, educationList: state.educationList.filter((education) => education.id !== action.payload)
+            }
         default:
             return state
     }

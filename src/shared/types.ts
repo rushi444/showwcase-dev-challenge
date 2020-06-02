@@ -28,6 +28,11 @@ export interface EducationObject {
     bullets: string[]
 }
 
+export interface SchoolTitleObject {
+    school: string
+    id: string
+}
+
 
 //Form States
 

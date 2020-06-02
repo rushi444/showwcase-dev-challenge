@@ -31,7 +31,6 @@ export const Dashboard: FC = () => {
     school: education.school,
     id: education.id,
   }))
-  console.log(schoolList)
 
   return (
     <DashboardContainer>

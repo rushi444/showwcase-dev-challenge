@@ -1,20 +1,17 @@
 import React, { FC, useState } from 'react'
 import styled from 'styled-components'
 
-interface SchoolTitleObject {
-  school: string
-  id: string
-}
+import { SchoolTitleObject } from '../shared/types'
 
 interface IProps {
   schoolList: SchoolTitleObject[]
 }
 
 export const EducationTitleList: FC<IProps> = ({ schoolList }) => {
-  const [focusSchool, setFocusSchool] = useState<string>('1')
+  const [focusSchool, setFocusSchool] = useState<string>(schoolList[0]?.id || '')
   return (
     <EducationTitleListContainer>
-      {schoolList.map(({school, id}) => (
+      {schoolList?.map(({ school, id }) => (
         <p key={id}>
           <a
             style={{ color: id === focusSchool ? '#646df6' : 'black' }}
