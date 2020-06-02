@@ -1,1 +1,15 @@
-<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fo3Nn0Cy10yIzqxUZgJ0at2%2FShowwcase-Dashboard%3Fnode-id%3D0%253A1&chrome=DOCUMENTATION" allowfullscreen></iframe>
+### Showwcase Developer Challenge
+
+##Installation
+- cd into showwcase-dev-challenge
+- yarn
+- yarn start
+
+##Technology
+#Tried to stay away from 3rd party libraries like react-select, formik, etc.
+- Typescript
+- React
+- Redux
+- Styled-Components
+- React-Modal
+- Jest & Enzyme for testing
