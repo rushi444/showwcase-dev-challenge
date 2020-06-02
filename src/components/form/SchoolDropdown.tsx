@@ -47,7 +47,7 @@ const SchoolDropdown: FC<IProps> = ({ school, setSchool }) => {
   return (
     <SchoolDropDownContainer ref={wrapperRef}>
       Name of School:
-      <FormInput type="text" placeholder="Name of School" value={school} onChange={handleChange} />
+      <FormInput type="text" placeholder="Ex. University of California, Berkeley" value={school} onChange={handleChange} />
       {showResults && (
         <SearchResultsList>
           {searchResults?.map((school, index) => (

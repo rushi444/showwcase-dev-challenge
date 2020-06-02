@@ -16,13 +16,20 @@ const DegreeInfo: FC<IProps> = ({ studyInfo, setStudyInfo }) => {
     <DegreeInfoContainer>
       <label>
         Degree:
-        <FormInput type="text" name="degree" value={studyInfo.degree} onChange={handleChange} />
+        <FormInput
+          type="text"
+          name="degree"
+          placeholder="Ex. Master's"
+          value={studyInfo.degree}
+          onChange={handleChange}
+        />
       </label>
       <label>
         Field of Study:
         <FormInput
           type="text"
           name="fieldOfStudy"
+          placeholder='Ex. Economics'
           value={studyInfo.fieldOfStudy}
           onChange={handleChange}
         />
