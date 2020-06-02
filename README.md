@@ -1,4 +1,4 @@
-##### Showwcase Developer Challenge
+# Showwcase Developer Challenge
 
 ## Installation
 - clone repo
