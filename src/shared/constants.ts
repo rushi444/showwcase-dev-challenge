@@ -1,6 +1,7 @@
 export const SUBMIT_USER_NAME = 'SUBMIT_USER_NAME'
 export const GET_ALL_SCHOOLS = 'GET_ALL_SCHOOLS'
 export const ADD_NEW_EDUCATION = 'ADD_NEW_EDUCATION'
+export const DELETE_EDUCATION = 'DELETE_EDUCATION'
 
 export const Months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
 
@@ -44,6 +45,7 @@ export const Years = [
 ]
 
 export const testEducationData = {
+    id: '1',
     school: 'University of California, Los Angeles',
     studyInfo: {
         degree: 'BS',
@@ -59,6 +61,7 @@ export const testEducationData = {
     bullets: ['bullet 1', 'bullet 2', 'bullet 3'],
 }
 export const testEducationData2 = {
+    id: '2',
     school: 'University of California, Berkeley',
     studyInfo: {
         degree: 'MS',
@@ -74,6 +77,7 @@ export const testEducationData2 = {
     bullets: ['bullet 1', 'bullet 2', 'bullet 3'],
 }
 export const testEducationData3 = {
+    id: '3',
     school: 'University of California, Irvine',
     studyInfo: {
         degree: 'BS',

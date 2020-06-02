@@ -1,9 +1,13 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { shallow, mount } from 'enzyme'
 import { EducationList } from '../EducationList'
 import { Provider } from 'react-redux'
 import { storeFactory } from '../../test/testUtils'
-import { testEducationData, testEducationData2, testEducationData3 } from '../../shared/constants'
+import {
+  testEducationData,
+  testEducationData2,
+  testEducationData3,
+} from '../../shared/constants'
 
 it('Education List renders', () => {
   const store = storeFactory({})

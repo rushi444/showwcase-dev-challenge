@@ -21,6 +21,7 @@ export interface ISchool {
 //Education Object
 
 export interface EducationObject {
+    id: string
     school: string
     studyInfo: DegreeInfoObject
     dates: DateObject

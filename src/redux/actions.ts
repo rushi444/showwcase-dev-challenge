@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-import { SUBMIT_USER_NAME, GET_ALL_SCHOOLS, ADD_NEW_EDUCATION } from '../shared/constants'
+import { SUBMIT_USER_NAME, GET_ALL_SCHOOLS, ADD_NEW_EDUCATION, DELETE_EDUCATION } from '../shared/constants'
 import { EducationObject } from '../shared/types'
 import { Dispatch, AnyAction } from 'redux'
 
@@ -29,3 +29,10 @@ export const addNewEducation = (newEducation: EducationObject) => (dispatch: Dis
     }
 }
 
+export const deleteEducation = (educationId: string) => (dispatch: Dispatch<AnyAction>) => {
+    try {
+        dispatch({ type: DELETE_EDUCATION, payload: educationId })
+    } catch (err) {
+        console.log(err)
+    }
+}

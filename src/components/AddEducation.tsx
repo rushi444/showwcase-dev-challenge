@@ -10,6 +10,7 @@ import { DateObject, DegreeInfoObject } from '../shared/types'
 import { useDispatch } from 'react-redux'
 import { validateForm } from '../components/form/formValidation'
 import { addNewEducation } from '../redux/actions'
+import { uuid } from 'uuidv4'
 
 export const AddEducation: FC = () => {
   const dispatch = useDispatch()
@@ -33,6 +34,7 @@ export const AddEducation: FC = () => {
   ) => {
     e.preventDefault()
     const educationInfo = {
+      id: uuid(),
       school,
       studyInfo,
       dates,

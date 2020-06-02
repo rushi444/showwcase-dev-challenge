@@ -24,7 +24,6 @@ describe('Add Education form tests', () => {
         <AddEducation />
       </Provider>,
     )
-    console.log('typeeee',)
   })
 
   it('Empty form fields do not close modal and throws alert ', () => {
