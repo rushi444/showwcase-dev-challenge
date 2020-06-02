@@ -10,7 +10,7 @@ interface IProps {
 }
 
 const DateSelect: FC<IProps> = ({ dates, setDates }) => {
-  const handleChange = (e: any) => {
+  const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setDates({ ...dates, [e.target.name]: e.target.value })
   }
   return (

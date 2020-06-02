@@ -11,7 +11,7 @@ export const Onboard: FC = () => {
   const dispatch = useDispatch()
   const [name, setName] = useState<string>('')
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement> | React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault()
     dispatch(submitUserName(name))
     history.push('/dashboard')
@@ -33,7 +33,7 @@ export const Onboard: FC = () => {
         />
         <Button
           disabled={name.length < 1}
-          onClick={(e: React.MouseEvent<HTMLElement | any>) => handleSubmit(e)}
+          onClick={handleSubmit}
         >
           Enter
         </Button>

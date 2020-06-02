@@ -28,7 +28,9 @@ export const AddEducation: FC = () => {
   })
   const [bullets, setBullets] = useState<string[]>([])
 
-  const handleSubmit = (e: any) => {
+  const handleSubmit = (
+    e: React.FormEvent<HTMLFormElement> | React.MouseEvent<HTMLButtonElement>,
+  ) => {
     e.preventDefault()
     const educationInfo = {
       school,
@@ -41,6 +43,19 @@ export const AddEducation: FC = () => {
     } else {
       dispatch(addNewEducation(educationInfo))
       setIsModalOpen(false)
+      setSchool('')
+      setDates({
+        monthStart: '',
+        yearStart: '',
+        monthEnd: '',
+        yearEnd: '',
+      })
+      setStudyInfo({
+        degree: '',
+        fieldOfStudy: '',
+        GPA: '',
+      })
+      setBullets([])
     }
   }
 
