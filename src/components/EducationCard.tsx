@@ -16,7 +16,7 @@ export const EducationCard: FC<IProps> = ({ id, data }) => {
   return (
     <EducationCardContainer id={`${id}`}>
       <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-        <p>{data.school}</p>
+        <p style={{fontSize: '1.3rem', marginBottom: '10px'}}>{data.school}</p>
         <p>
           {data.dates.monthStart}, {data.dates.yearStart} - {data.dates.monthEnd},{' '}
           {data.dates.yearEnd}

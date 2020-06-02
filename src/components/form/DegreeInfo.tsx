@@ -29,14 +29,23 @@ const DegreeInfo: FC<IProps> = ({ studyInfo, setStudyInfo }) => {
         <FormInput
           type="text"
           name="fieldOfStudy"
-          placeholder='Ex. Economics'
+          placeholder="Ex. Economics"
           value={studyInfo.fieldOfStudy}
           onChange={handleChange}
         />
       </label>
       <label>
         GPA:
-        <FormInput type="number" name="GPA" value={studyInfo.GPA} onChange={handleChange} />
+        <FormInput
+          type="number"
+          placeholder="3.0"
+          step="0.1"
+          min="0"
+          max="4"
+          name="GPA"
+          value={studyInfo.GPA}
+          onChange={handleChange}
+        />
       </label>
     </DegreeInfoContainer>
   )
