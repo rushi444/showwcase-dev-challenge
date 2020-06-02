@@ -50,11 +50,12 @@ export const AddEducation: FC = () => {
     <AddEducationContainer>
       <Button onClick={() => setIsModalOpen(true)}>Add Education</Button>
       <Modal
-        appElement={document.querySelector('.App') as any}
+        appElement={document.querySelector('.App') as HTMLDivElement}
         isOpen={isModalOpen}
         onRequestClose={() => setIsModalOpen(false)}
         style={customStyles}
         contentLabel="Add Education"
+        ariaHideApp={false}
       >
         <AddEducationForm onSubmit={handleSubmit}>
           <SchoolDropdownMemo school={school} setSchool={setSchool} />
@@ -99,12 +100,7 @@ const SubmitButton = styled(Button)`
   }
 `
 
-const ErrorMessage = styled.p`
-  padding: 0;
-  margin: 0;
-  font-size: 0.6rem;
-  color: red;
-`
+SubmitButton.displayName = 'SubmitButton'
 
 const customStyles = {
   content: {

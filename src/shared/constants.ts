@@ -47,7 +47,7 @@ export const testEducationData = {
     school: 'University of California, Los Angeles',
     studyInfo: {
         degree: 'BS',
-        fieldOfStudy: 'Econ',
+        fieldOfStudy: 'Economics',
         GPA: '4.0'
     },
     dates: {
@@ -59,26 +59,26 @@ export const testEducationData = {
     bullets: ['bullet 1', 'bullet 2', 'bullet 3'],
 }
 export const testEducationData2 = {
-    school: 'University of California, Los Angeles2',
+    school: 'University of California, Berkeley',
     studyInfo: {
-        degree: 'BS',
-        fieldOfStudy: 'Econ',
-        GPA: '4.0'
+        degree: 'MS',
+        fieldOfStudy: 'Computer Science',
+        GPA: '3.0'
     },
     dates: {
         monthStart: 'Jan',
-        yearStart: '2020',
+        yearStart: '2015',
         monthEnd: 'Jan',
-        yearEnd: '2020',
+        yearEnd: '2019',
     },
     bullets: ['bullet 1', 'bullet 2', 'bullet 3'],
 }
 export const testEducationData3 = {
-    school: 'University of California, Los Angeles3',
+    school: 'University of California, Irvine',
     studyInfo: {
         degree: 'BS',
-        fieldOfStudy: 'Econ',
-        GPA: '4.0'
+        fieldOfStudy: 'Data Sciece',
+        GPA: '3.4'
     },
     dates: {
         monthStart: 'Jan',

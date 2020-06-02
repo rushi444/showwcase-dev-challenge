@@ -1,5 +1,5 @@
 import React from 'react'
-import { mount } from 'enzyme'
+import { mount, ReactWrapper } from 'enzyme'
 import { SchoolDropdownMemo } from '../SchoolDropdown'
 import { Provider } from 'react-redux'
 import { storeFactory } from '../../../test/testUtils'
@@ -22,7 +22,7 @@ it('dropdown component renders', () => {
 
 describe('displays dropdown items accurately', () => {
   const store = storeFactory({})
-  let wrapper: any
+  let wrapper: ReactWrapper
 
   beforeEach(() => {
     wrapper = mount(
