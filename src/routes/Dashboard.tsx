@@ -27,7 +27,11 @@ export const Dashboard: FC = () => {
 
   if (!userName) history.push('/')
 
-  const schoolList = educationList.map((education) => education.school)
+  const schoolList = educationList.map((education) => ({
+    school: education.school,
+    id: education.id,
+  }))
+  console.log(schoolList)
 
   return (
     <DashboardContainer>

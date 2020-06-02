@@ -8,7 +8,7 @@ import trashIcon from '../assets/trash.png'
 
 interface IProps {
   data: EducationObject
-  id: number
+  id: string
 }
 
 export const EducationCard: FC<IProps> = ({ id, data }) => {

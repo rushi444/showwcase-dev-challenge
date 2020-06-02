@@ -10,8 +10,8 @@ interface IProps {
 export const EducationList: FC<IProps> = ({ educationList }) => {
   return (
     <EducationListContainer>
-      {educationList.map((item, index) => (
-        <EducationCard key={index} id={index} data={item} />
+      {educationList.map((item) => (
+        <EducationCard key={item.id} id={item.id} data={item} />
       ))}
     </EducationListContainer>
   )
